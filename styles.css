@@ -1,0 +1,366 @@
+/* PhonePe Invest — landing page
+   Recreated 1:1 from Figma "PhonePe-Invest", frame 210:3182 (1440 × 7480).
+   Every section is a 1440px "frame"; blocks sit at their Figma coordinates and
+   auto-layout groups are flex, so text metrics flow exactly like the design.
+   The whole composition is scaled to the viewport with --fit (set in <head>). */
+
+:root {
+  --navy-900: #03081a;
+  --navy-800: #0a1f44;
+  --blue-700: #004bb0;
+  --blue-600: #005ecc;
+  --blue-400: #2e8bff;
+  --lime: #def517;
+  --ink: #0a1f44;
+  --ink-2: #4a5b78;
+  --ink-3: #6b7a94;
+  --ink-4: #8a99b2;
+  --font: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --grad-hero: linear-gradient(180deg, #03081a 0%, #0a1f44 48.305%, #004bb0 91.525%, #2e8bff 127.12%);
+  --grad-card: linear-gradient(180deg, #03081a 0%, #0a1f44 38%, #004bb0 72%, #2e8bff 100%);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  overflow-x: hidden;
+}
+img { display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; font-weight: inherit; }
+button, input { font: inherit; color: inherit; }
+
+.page { position: relative; width: 1440px; margin: 0; zoom: var(--fit, 1); }
+.frame { position: relative; width: 1440px; overflow: hidden; }
+
+/* Shared pieces ---------------------------------------------------------- */
+.curve { position: absolute; left: 0; width: 1440px; height: 120px; background: #fff; }
+.curve--bottom { border-radius: 0 0 80px 80px; }
+.curve--top { border-radius: 80px 80px 0 0; }
+
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 200px; height: 56px; padding: 12px 34px; border-radius: 40px;
+  font-size: 16px; line-height: 24px; font-weight: 600; white-space: nowrap;
+}
+.btn--white { background: #fff; color: var(--ink); }
+.btn--outline { border: 1px solid #fff; color: #fff; }
+
+.chip-dark {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px 16px; border-radius: 24px; background: rgba(202, 229, 255, 0.1);
+  color: var(--lime); font-size: 12px; line-height: 16px; font-weight: 600;
+  letter-spacing: 0.96px; text-transform: uppercase; white-space: nowrap;
+}
+.chip-light {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 8px 16px; border-radius: 24px; background: rgba(202, 229, 255, 0.25);
+  color: var(--ink); font-size: 12px; line-height: 16px; letter-spacing: -0.48px; white-space: nowrap;
+}
+.text-link {
+  display: inline-flex; align-items: center; justify-content: center; padding: 8px 0;
+  border-bottom: 1px solid var(--blue-600); color: var(--blue-600);
+  font-size: 14px; line-height: 24px; font-weight: 600; white-space: nowrap;
+}
+.rule-light { width: 1280px; height: 0; border-top: 1px solid #e3e8ef; }
+
+/* Light grid with radial fade (Sign-up & Get-the-app backgrounds, 210:3403 / 210:3592) */
+.bg-grid {
+  position: absolute; left: -59.4px; width: 1558.8px; height: 866px; pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 779.4px 433px at 779.4px 433px, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 60%, #fff 100%),
+    repeating-linear-gradient(90deg, #e6eaf0 0 1.083px, transparent 1.083px 69.28px),
+    repeating-linear-gradient(180deg, #e6eaf0 0 1.083px, transparent 1.083px 69.28px);
+}
+
+/* ===================== Hero (210:3183) ===================== */
+.hero { height: 1093px; background: var(--grad-hero); }
+.hero__art-wrap { position: absolute; left: 0; top: 592px; width: 1440px; height: 501px; }
+.hero__art-wrap { overflow: hidden; }
+.illus { position: absolute; left: 0; top: 0; width: 1440px; height: 501px; }
+.illus .l { position: absolute; display: block; max-width: none; user-select: none; -webkit-user-drag: none; }
+.illus span.l > img { position: absolute; display: block; max-width: none; }
+.hero__texture {
+  position: absolute; inset: 0; mix-blend-mode: overlay; opacity: 0.2;
+  background: url("assets/texture.png") 0 0 / 340.548px 340.548px repeat;
+}
+.hero__curve { position: absolute; left: 0; top: 1017px; width: 1440px; height: 76px; background: #fff; border-radius: 80px 80px 0 0; }
+
+.nav {
+  position: absolute; left: 0; top: 0; width: 1440px; height: 96px; padding: 24px 80px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { position: relative; display: block; width: 116.95px; height: 40px; }
+.logo__mark { position: absolute; left: 0; top: 0; }
+.logo__top { position: absolute; left: 51.26px; top: 4.47px; }
+.logo__bottom { position: absolute; left: 51.26px; top: 21.72px; }
+.nav__right { display: flex; align-items: center; gap: 40px; }
+.nav__links { display: flex; align-items: center; gap: 40px; font-size: 14px; line-height: 24px; color: rgba(255,255,255,0.72); white-space: nowrap; }
+.nav__cta {
+  display: flex; align-items: center; justify-content: center; width: 136px; height: 48px; border-radius: 24px;
+  background: #fff; color: var(--ink); font-size: 14px; line-height: 24px; font-weight: 600;
+}
+
+.hero__copy { position: absolute; left: 50%; top: 176px; width: 962px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 48px; }
+.hero__block { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; }
+.hero__text { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center; }
+.hero__title { font-size: 64px; line-height: 64px; font-weight: 300; letter-spacing: -2.56px; color: #fff; white-space: nowrap; }
+.hero__l2 { color: rgba(255,255,255,0.62); }
+.hero__sub { font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.78); width: 100%; }
+.hero__ctas { display: flex; align-items: center; gap: 8px; }
+.trust { display: flex; align-items: center; gap: 40px; }
+.trust li { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 16px; color: rgba(255,255,255,0.6); white-space: nowrap; }
+
+/* ===================== Portfolio Analyser (210:3350) ===================== */
+.analyser { height: 1215px; background: #fff; }
+.analyser__content { position: absolute; left: 80px; top: 120px; display: flex; flex-direction: column; gap: 40px; }
+.analyser__head { display: flex; flex-direction: column; gap: 80px; width: 1280px; }
+.analyser__row { display: flex; align-items: flex-start; justify-content: space-between; width: 1248px; }
+.analyser__left { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 234px; }
+.analyser__title { font-size: 56px; line-height: 64px; font-weight: 300; letter-spacing: -1.68px; color: var(--ink); white-space: nowrap; }
+.analyser__right { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 584px; }
+.analyser__lead-wrap { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+.analyser__lead { font-size: 24px; line-height: 32px; font-weight: 300; letter-spacing: -0.24px; color: var(--ink); }
+.analyser__note { font-size: 14px; line-height: 24px; color: var(--ink-3); }
+
+.chip-new {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; overflow: hidden;
+  padding: 8px 16px; border-radius: 24px; background: var(--lime); border: 2px solid #f5fdb2;
+  color: var(--ink); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: -0.48px; text-align: center;
+}
+.chip-new__shine { position: absolute; left: -10px; top: -18px; width: 48.723px; height: 57.621px; display: flex; align-items: center; justify-content: center; }
+.chip-new__shine img { transform: rotate(-33.49deg); }
+.chip-new > span:last-child { position: relative; }
+
+.steps { display: flex; align-items: flex-start; gap: 25px; width: 1280px; }
+.step { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 411px; }
+.step__text { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 340px; }
+.step__group { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.step__label { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 16px; letter-spacing: 0.48px; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.step__title { font-size: 48px; line-height: 56px; font-weight: 300; letter-spacing: -1.44px; color: var(--ink); white-space: nowrap; }
+.step__desc { font-size: 16px; line-height: 24px; color: var(--ink-2); width: 100%; }
+.panel { position: relative; width: 411px; height: 438px; border-radius: 80px; border: 1px solid var(--ink); overflow: hidden; }
+.panel img { position: absolute; object-fit: cover; }
+
+/* ===================== Sign-up (210:3399) ===================== */
+.signup { height: 777px; background: #fff; }
+.signup__card {
+  position: absolute; left: 114px; top: 120px; width: 1216px; height: 537px; border-radius: 80px; overflow: hidden;
+  background: var(--grad-card);
+}
+.signup__glows, .signup__arcs { position: absolute; left: -160px; top: -47px; width: 1880px; height: 1440px; }
+.signup__inner { position: absolute; left: 80px; top: 80px; width: 1056px; display: flex; align-items: center; justify-content: space-between; }
+.signup__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 444px; }
+.signup__copy-top { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
+.signup__title { font-size: 64px; line-height: 64px; font-weight: 300; letter-spacing: -2.56px; color: #fff; white-space: nowrap; }
+.signup__sub { font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.75); width: 100%; }
+
+.form { display: flex; flex-direction: column; padding: 40px; border-radius: 40px; background: #fff; margin: 0; }
+.form__inner, .form__top, .form__field-group, .form__fields { display: flex; flex-direction: column; align-items: flex-start; width: 464px; }
+.form__inner { gap: 40px; }
+.form__top { gap: 40px; }
+.form__field-group { gap: 24px; }
+.form__fields { gap: 16px; }
+.form__label { font-size: 16px; line-height: 24px; font-weight: 600; color: var(--ink); width: 100%; }
+.pill-field { position: relative; width: 464px; height: 72px; border-radius: 36px; background: #f4f7fb; border: 1px solid #d5dde8; }
+.pill-field__code { position: absolute; left: 26px; top: 22px; font-size: 16px; line-height: 24px; font-weight: 600; color: var(--ink); }
+.pill-field__sep { position: absolute; left: 74px; top: 22px; width: 1px; height: 24px; background: #d5dde8; }
+.pill-field__input {
+  position: absolute; left: 94px; top: 22px; width: 190px; height: 24px; padding: 0; border: 0; outline: 0; background: transparent;
+  font-size: 16px; line-height: 24px; letter-spacing: 0.64px; color: var(--ink);
+}
+.pill-field__input::placeholder { color: var(--ink-4); opacity: 1; }
+.pill-field__btn {
+  position: absolute; left: 296px; top: 6px; width: 158px; height: 56px; padding: 16px 24px; border: 0; border-radius: 28px; background: var(--lime);
+  display: flex; align-items: center; gap: 2px; cursor: pointer; color: var(--ink); font-size: 14px; line-height: 24px; font-weight: 600; white-space: nowrap;
+}
+.pill-field__arrow { position: relative; width: 24px; height: 24px; }
+.pill-field__arrow img { position: absolute; left: 6px; top: 7.5px; transform: rotate(180deg); }
+.form__terms { font-size: 12px; line-height: 20px; color: var(--ink-3); width: 100%; }
+.form__terms a { font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-position: from-font; }
+.form__terms b { font-weight: 600; }
+.form__rule { width: 100%; height: 1px; background: #eef2f7; }
+.form__badges { display: flex; align-items: center; gap: 80px; width: 100%; }
+.form__col { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.form__col--1 { width: 151px; }
+.form__col li { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 24px; color: var(--ink-2); white-space: nowrap; }
+
+/* ===================== Offers (210:3498) ===================== */
+.offers { height: 960px; background: #0b3a80; }
+.offers__grid { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px) 0 0 / 1440px 960px no-repeat, linear-gradient(180deg, rgba(255,255,255,0.04) 0 1px, transparent 1px) 0 0 / 1440px 960px no-repeat; }
+.offers__content { position: absolute; left: 118px; top: 50%; width: 1205px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-start; gap: 80px; }
+.offers__title { width: 100%; text-align: center; font-size: 64px; line-height: 64px; font-weight: 300; letter-spacing: -2.56px; color: #fff; white-space: nowrap; }
+.offers__cards { display: flex; align-items: center; gap: 40px; width: 100%; }
+.offer { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 375px; padding: 40px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.25); }
+.offer__top { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 165px; }
+.tag { display: flex; align-items: center; justify-content: center; width: 100%; height: 32px; padding: 4px 12px; border-radius: 24px; font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.48px; text-transform: uppercase; white-space: nowrap; }
+.tag--lime { background: var(--lime); color: var(--ink); }
+.tag--ghost { color: transparent; }
+.offer__price { width: 100%; color: #fff; font-weight: 200; letter-spacing: -8.64px; line-height: 0; white-space: nowrap; }
+.offer__rupee { font-size: 64px; line-height: 64px; }
+.offer__zero { font-size: 120px; line-height: 144px; }
+.offer__price { height: 144px; display: flex; align-items: baseline; }
+.offer__body { display: flex; flex-direction: column; gap: 8px; width: 100%; color: #fff; }
+.offer__body h3 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.48px; }
+.offer__body p { font-size: 16px; line-height: 24px; opacity: 0.5; }
+.nowrap { white-space: nowrap; }
+.offers__footnote {
+  position: absolute; left: 118px; top: 726px; width: 375px; height: 110px; padding: 38px 8px 8px;
+  border: 1px solid #447ecb; border-top: 0; border-radius: 0 0 40px 40px; display: flex; align-items: center; justify-content: center;
+}
+.offers__footnote p { width: 282px; font-size: 12px; line-height: 16px; color: #fff; }
+
+/* ===================== Investment solutions (210:3534) ===================== */
+.solutions { height: 1072px; background: #fff; }
+.solutions__content { position: absolute; left: 1px; top: 80px; width: 1438px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.solutions__head { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 708px; }
+.solutions__intro { display: flex; flex-direction: column; align-items: center; gap: 16px; width: 627px; }
+.solutions__text { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; text-align: center; }
+.solutions__title { font-size: 64px; line-height: 64px; font-weight: 300; letter-spacing: -2.56px; color: var(--ink); white-space: nowrap; }
+.solutions__sub { width: 576px; font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.tabs { display: flex; align-items: center; width: 100%; border-radius: 40px; background: #f4f7fb; overflow: hidden; }
+.tab { display: flex; align-items: center; justify-content: center; padding: 16px 24px; border: 0; border-radius: 40px; background: transparent; color: var(--ink-2); font-size: 16px; line-height: 24px; white-space: nowrap; cursor: pointer; }
+.tab.is-active { background: var(--ink); color: #fff; }
+
+.carousel { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; }
+.carousel__viewport { position: relative; width: 100%; height: 480px; }
+.carousel__track { position: absolute; left: -1161px; top: 0; width: 3760px; display: flex; align-items: center; gap: 24px; }
+.pill { position: relative; flex: none; height: 480px; border-radius: 240px; }
+.pill--peek { width: 1216px; background: #66b3ff; opacity: 0.35; }
+.pill--active {
+  width: 1280px; overflow: hidden;
+  background: linear-gradient(139.844deg, #003370 0%, #005ecc 42.308%, #3399ff 76.923%);
+  box-shadow: 0 40px 80px -24px rgba(0, 94, 204, 0.25);
+}
+.pill__glow { position: absolute; left: 734px; top: 336.4px; width: 618.935px; height: 380.883px; border-radius: 50%; background: var(--lime); opacity: 0.25; filter: blur(60px); transform: rotate(10.84deg); transform-origin: center; }
+.pill__copy { position: absolute; left: 168px; top: 50%; width: 368px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+.pill__text { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+.pill__title { font-size: 80px; line-height: 88px; font-weight: 200; letter-spacing: -3.2px; color: #fff; }
+.pill__desc { font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.82); }
+.pill__link { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 24px; background: #fff; color: var(--ink); font-size: 16px; line-height: 24px; font-weight: 600; white-space: pre; }
+.pill__coin-red { position: absolute; left: 1058px; top: 218px; }
+.pill__sparkle { position: absolute; left: 791px; top: 320px; }
+.pill__coin-blue { position: absolute; left: 749px; top: 81px; }
+.progress { position: relative; width: 148px; height: 8px; display: flex; align-items: center; gap: 4px; }
+.progress__active { position: relative; width: 48px; height: 8px; border-radius: 8px; background: rgba(0, 94, 204, 0.25); }
+.progress__active i { position: absolute; left: 0; top: 0; width: 26px; height: 8px; border-radius: 8px; background: var(--blue-600); }
+.progress__dash { width: 16px; height: 8px; border-radius: 8px; background: #d5dde8; }
+
+/* ===================== Get the app banner (210:3589) ===================== */
+.banner { height: 866px; background: #fff; }
+.banner__card {
+  position: absolute; left: 81px; top: 273px; width: 1279px; height: 470px; border-radius: 80px; overflow: hidden;
+  border: 8px solid rgba(76, 153, 255, 0.25); background-clip: padding-box;
+  background: linear-gradient(140.415deg, #0a1f44 0%, #004bb0 46.154%, #2e8bff 76.923%);
+}
+.banner__glow { position: absolute; left: 778.3px; top: 239.75px; width: 711.394px; height: 406.511px; border-radius: 50%; background: var(--lime); opacity: 0.35; filter: blur(60px); transform: rotate(-21.17deg); }
+.banner__halo { position: absolute; right: -93px; top: -157px; width: 768px; height: 768px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+.banner__texture { position: absolute; left: -8px; top: -8px; width: 1279px; height: 470px; mix-blend-mode: overlay; opacity: 0.1; background: url("assets/texture.png") 0 0 / 340.548px 340.548px repeat; }
+.banner__copy { position: absolute; left: 72px; top: 50%; width: 470px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+.banner__copy-top { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
+.banner__copy-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; }
+.banner__title { font-size: 48px; line-height: 56px; font-weight: 300; letter-spacing: -1.44px; color: #fff; white-space: nowrap; }
+.banner__sub { width: 440px; font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.75); }
+.banner__badges { display: block; width: 327px; height: 54px; }
+.banner__badges img { width: 327px; height: 54px; }
+.banner__phone { position: absolute; left: 881px; top: 124px; width: 398px; height: 619px; }
+
+/* ===================== Footer (210:4015) ===================== */
+.footer { height: 1497px; background: var(--grad-hero); }
+.footer__curve { top: -143px; height: 246px; }
+.footer__cols { position: absolute; left: 80px; top: 291px; display: flex; align-items: flex-start; gap: 180px; }
+.footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; width: 411px; }
+.footer__brand-top { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 100%; }
+.footer__logo { position: relative; display: block; width: 187.12px; height: 64px; }
+.footer__mark { position: absolute; left: 0; top: 0; }
+.footer__wtop { position: absolute; left: 82.01px; top: 7.16px; }
+.footer__wbottom { position: absolute; left: 82.01px; top: 34.76px; }
+.footer__tagline { font-size: 16px; line-height: 24px; color: #fff; white-space: nowrap; }
+.footer__cta { display: flex; align-items: center; justify-content: center; height: 56px; padding: 12px 40px; border: 1px solid #fff; border-radius: 40px; color: #fff; font-size: 12px; line-height: 16px; font-weight: 600; white-space: nowrap; }
+.footer__links { display: flex; align-items: flex-start; gap: 180px; font-size: 14px; line-height: 24px; }
+.footer__col { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.footer__col--offers { width: 219px; }
+.footer__col h4 { font-weight: 600; letter-spacing: 0.56px; text-transform: uppercase; color: rgba(255,255,255,0.5); white-space: nowrap; }
+.footer__col ul { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; color: #fff; }
+.footer__col--solutions ul { width: 127px; }
+.footer__col li { width: 100%; white-space: nowrap; }
+.footer__legal { position: absolute; left: 80px; top: 656px; width: 1280px; display: flex; flex-direction: column; gap: 24px; }
+.footer__rule { width: 100%; height: 0; border-top: 1px solid rgba(255,255,255,0.25); }
+.footer__legal-text { display: flex; flex-direction: column; gap: 8px; width: 1216px; font-size: 12px; line-height: 16px; color: var(--ink-4); }
+.footer__wordmark { position: absolute; left: 82px; top: 798px; width: 1280px; height: 155px; mix-blend-mode: soft-light; }
+.footer__hands { position: absolute; left: 0; top: 617.5px; width: 1440px; height: 879.5px; }
+
+/* ===================== Carousel slides & interaction states ===================== */
+.carousel__track { left: 0; width: 100%; height: 480px; display: block; }
+.pill--slide {
+  position: absolute; left: 0; top: 0; width: 1280px; height: 480px; border-radius: 240px; overflow: hidden; cursor: pointer;
+  background: linear-gradient(139.844deg, #003370 0%, #005ecc 42.308%, #3399ff 76.923%);
+  box-shadow: 0 40px 80px -24px rgba(0, 94, 204, 0.25);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), width 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.7s ease, box-shadow 0.7s ease;
+  will-change: transform, width;
+}
+.pill--slide.is-active { cursor: default; }
+.pill--slide::after { /* flat "peek" look (Figma: #66b3ff @ 35%) */
+  content: ""; position: absolute; inset: 0; background: #66b3ff; opacity: 0; transition: opacity 0.7s ease; pointer-events: none;
+}
+.pill--slide:not(.is-active) { opacity: 0.35; box-shadow: none; }
+.pill--slide:not(.is-active)::after { opacity: 1; }
+.pill--slide:not(.is-active) > * { opacity: 0; }
+.pill--slide > * { transition: opacity 0.5s ease; }
+.pill--slide.is-active > * { transition: none; }
+.pill--slide .pill__copy { z-index: 2; }
+.pill--slide .pill__title { white-space: nowrap; width: max-content; max-width: none; }
+.pill--slide img { user-select: none; -webkit-user-drag: none; }
+
+.progress__dash { position: relative; overflow: hidden; transition: width 0.6s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.6s ease; }
+.progress__dash.is-active { width: 48px; background: rgba(0, 94, 204, 0.25); }
+.progress__dash i { position: absolute; left: 0; top: 0; height: 8px; width: 0; border-radius: 8px; background: var(--blue-600); }
+.tab { transition: background-color 0.4s ease, color 0.4s ease; }
+.tab:not(.is-active):hover { color: var(--ink); }
+
+.form.is-invalid .pill-field { border-color: #e5484d; box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.15); }
+.form.is-sent .pill-field__btn { background: #80e58a; }
+.pill-field__btn, .btn, .nav__cta, .footer__cta, .pill__link, .text-link { transition: filter 0.3s ease; }
+.btn--white:hover, .nav__cta:hover, .pill__link:hover, .pill-field__btn:hover { filter: brightness(0.96); }
+.btn--outline:hover, .footer__cta:hover { background: rgba(255, 255, 255, 0.08); }
+.nav__links a { transition: color 0.3s ease; }
+.nav__links a:hover { color: #fff; }
+
+/* ===================== Motion states ===================== */
+.mask { display: block; overflow: hidden; }
+.mask__inner { display: block; }
+.hero__title .mask, .analyser__title .mask, .signup__title .mask, .solutions__title .mask, .banner__title .mask { padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.hero__title .mask__inner, .analyser__title .mask__inner, .signup__title .mask__inner, .solutions__title .mask__inner, .banner__title .mask__inner { will-change: transform; }
+/* Hide everything the motion layer animates until it has set initial states (max 3s, see <head>) */
+html.motion-pending .nav, html.motion-pending .hero__copy, html.motion-pending .hero__art-wrap,
+html.motion-pending .analyser__content, html.motion-pending .signup__card, html.motion-pending .offers__content,
+html.motion-pending .offers__footnote, html.motion-pending .solutions__content, html.motion-pending .banner__card,
+html.motion-pending .banner__phone, html.motion-pending .footer__cols, html.motion-pending .footer__legal,
+html.motion-pending .footer__wordmark, html.motion-pending .footer__hands { visibility: hidden; }
+
+/* Card illustrations (Figma 245:352) */
+.pill--slide .cl { position: absolute; display: block; max-width: none; user-select: none; -webkit-user-drag: none; will-change: transform; z-index: 1; }
+
+/* Offers parallax backdrop: same gradient as the Figma section, extended 120px above and below so it can drift without showing edges */
+.offers__bg {
+  position: absolute; left: 0; top: -120px; width: 1440px; height: 1200px; will-change: transform;
+  background: linear-gradient(180deg, #03081a 0, #03081a 120px, #0a1f44 484.8px, #004bb0 811.2px, #2e8bff 1080px, #2e8bff 1200px);
+}
+.offers__grid { will-change: transform; }
+
+/* ===== Pin & cover (motion on only): Offers is pinned while Sign-up scrolls off it and Solutions slides over it ===== */
+html.motion .analyser, html.motion .signup { z-index: 2; }
+html.motion .offers-pin { position: relative; z-index: 0; margin-top: -960px; height: 3720px; }
+html.motion .offers-pin .offers { position: sticky; top: min(0px, calc(100vh / var(--fit, 1) - 960px)); }
+html.motion .solutions { z-index: 2; margin-top: -960px; }
+/* While pinned, Offers keeps no white strip of its own: the Solutions section brings the rounded white edge as it slides over */
+html.motion .offers .curve--top { display: none; }
+html.motion .solutions { border-radius: 80px 80px 0 0; }
